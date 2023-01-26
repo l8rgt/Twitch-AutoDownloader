@@ -1,4 +1,5 @@
-from Downloader import src_path
+import os
+src_path = os.path.dirname(__file__)
 
 SaveLocation = src_path+'\VODs'                          #VOD storage location
 TwitchID = ''                                            #Twitch Client ID

@@ -11,9 +11,9 @@ from index import TwitchID
 from index import TwitchSecret
 from index import ChannelName
 from index import Automatic
+from index import SaveLocation
 
 src_path = os.path.dirname(__file__)
-trg_path = src_path+'\VODs'
 
 def downloader():
     response = requests.post('https://id.twitch.tv/oauth2/token', data={
@@ -78,7 +78,7 @@ def downloader():
                 clip.write_videofile(cleansedTitle+"_"+VOD_ID+".mp4")
                 clip.close()
                 for src_file in Path(src_path).glob('*.mp4'):
-                    shutil.move(src_file, trg_path)
+                    shutil.move(src_file, SaveLocation)
             IDList.append(VOD_ID) 
         VODNum+=1
     with open('Downloaded.json','w') as i:
@@ -96,7 +96,7 @@ CurrTime=datetime.now()
 while Automatic:
     StartTime = datetime.now()
     OneDay = timedelta(hours=24)
-    print(str(StartTime+OneDay)[:-6])
+    #print(str(StartTime+OneDay)[:-6])
 
     while str(CurrTime)[:-6]!=str(StartTime+OneDay)[:-6]:
         CurrTime = datetime.now()

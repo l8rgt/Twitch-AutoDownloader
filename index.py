@@ -1,3 +1,6 @@
+from Downloader import src_path
+
+SaveLocation = src_path+'\VODs'                          #VOD storage location
 TwitchID = ''                                            #Twitch Client ID
 TwitchSecret = ''                                        #Twitch Client Secret
 ChannelName=''                                           #Twitch Channel Name

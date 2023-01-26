@@ -12,8 +12,7 @@ from index import TwitchSecret
 from index import ChannelName
 from index import Automatic
 from index import SaveLocation
-
-src_path = os.path.dirname(__file__)
+from index import src_path
 
 def downloader():
     response = requests.post('https://id.twitch.tv/oauth2/token', data={
